@@ -27,6 +27,7 @@ const handler: Handler = async () => {
       statusCode: 500,
       body: JSON.stringify({
         message: 'Something went wrong...',
+        error: error,
       }),
     };
   }
