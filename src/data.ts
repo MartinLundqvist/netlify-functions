@@ -26,6 +26,7 @@ const getData = async (range: string) => {
   } catch (error) {
     console.log('Error occured while fetching data');
     console.log(error);
+    throw error;
   }
 
   return null;
