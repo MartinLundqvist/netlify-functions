@@ -7,9 +7,15 @@ dotenv.config();
 // set up the googleapi
 const getData = async (range: string) => {
   try {
+    const parsePrivateKey = (input: string): string => {
+      if (input[0] === '-') return input;
+
+      return JSON.parse(input);
+    };
+
     const client = new JWT({
       email: process.env.CLIENT_EMAIL,
-      key: process.env.PRIVATE_KEY,
+      key: parsePrivateKey(process.env.PRIVATE_KEY!),
       scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
     });
 
